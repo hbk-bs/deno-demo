@@ -1,0 +1,54 @@
+###
+POST http://localhost:8000
+Content-Type: application/json
+
+{
+  "name": "tinyllama"
+}
+
+### POST to generate
+curl http://localhost:11434/api/generate -d '{
+  "model": "tinyllama",
+  "prompt": "Why is the sky blue?",
+  "stream": false
+}'
+
+###
+
+curl http://localhost:11434/api/generate -d '{
+  "model": "tinyllama",
+  "prompt": "Why is the sky blue?",
+  "stream": false
+}'
+
+### GENERATE
+
+POST http://localhost:11434/api/generate
+
+{
+  "model": "tinyllama",
+  "prompt": "Why is the sky blue?",
+  "stream": false
+}
+
+### CHAT
+
+POST http://localhost:11434/api/chat
+
+{
+  "model": "phi3",
+  "stream": false,
+  "options":{
+    "temperature": 0.1,
+    "seed": 23
+  },
+  "messages":[
+    {
+      "role":"system",
+      "content": "You are a fluffy kitten"
+    },{
+      "role":"user",
+      "content":"can I play with you?"
+    }
+  ]
+}
